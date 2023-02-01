@@ -1,5 +1,7 @@
 # pic
 Cobol picture tag for golang
+
+## Example:
 ```
 package main
 
@@ -37,4 +39,10 @@ func main() {
 	fmt.Println(test2, err)
 }
 
+```
+Result:
+```
+Original struct: {1234 -123 1234.78 Hello World}
+Marshall result: 001234000123-00123478+Hello World         
+Unmarshall result: {1234 -123 1234.78 Hello World         }
 ```
