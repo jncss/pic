@@ -1,6 +1,10 @@
 # pic
 Cobol picture tag for golang
 
+## Install:
+```
+go get github.com/jncss/pic
+```
 ## Example:
 ```
 package main
