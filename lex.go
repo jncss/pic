@@ -2,14 +2,13 @@ package pic
 
 import (
 	"errors"
-	"log"
 )
 
 type lexer struct {
 	input        string
-	position     int  // current position in input (points to current char)
-	readPosition int  // current reading position in input (after current char)
-	ch           byte // current char under examination
+	position     int
+	readPosition int
+	ch           byte
 }
 
 func newLexer(input string) *lexer {
@@ -27,8 +26,6 @@ func (l *lexer) readChar() {
 	l.position = l.readPosition
 	l.readPosition += 1
 }
-
-// Parser for a cobol picture string
 
 type format struct {
 	picType    string // N for number, A for string
@@ -86,7 +83,6 @@ func (p *parser) parseNumber() {
 				num = num*10 + int(p.l.ch-'0')
 				p.l.readChar()
 			}
-			log.Println(num)
 			if onDecimalPart {
 				p.res.decPartLen += num - 1
 			} else {
