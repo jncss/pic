@@ -19,6 +19,9 @@ func TestMarshall(t *testing.T) {
 		TestString: "1234567890AAA",
 	}
 
+	// Original
+	fmt.Println("Original:", picTest)
+
 	// Marshall
 	val, _ := Marshall(picTest)
 
