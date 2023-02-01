@@ -10,26 +10,31 @@ import (
 )
 
 type TestPic struct {
-	testNumInt1  int     `pic:"999999"`
-	testNumInt2  int     `pic:"9(6)S"`
-	testNumFloat float64 `pic:"9(6)V99S"`
-	testString   string  `pic:"X(20)"`
+	TestNumInt1  int     `pic:"999999"`
+	TestNumInt2  int     `pic:"9(6)S"`
+	TestNumFloat float64 `pic:"9(6)V99S"`
+	TestString   string  `pic:"X(20)"`
 }
 
 func main() {
 	test := TestPic{
-		testNumInt1:  1234,
-		testNumInt2:  -123,
-		testNumFloat: 1234.78,
-		testString:   "Hello World",
+		TestNumInt1:  1234,
+		TestNumInt2:  -123,
+		TestNumFloat: 1234.78,
+		TestString:   "Hello World",
 	}
 
+	// Original
+	fmt.Println(test)
+
+	// Marshall
 	result, err := pic.Marshall(test)
+	fmt.Println(result, err)
 
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Println(result)
+	// Unmarshall
+	var test2 TestPic
+	err = pic.Unmarshall(result, &test2)
+	fmt.Println(test2, err)
 }
+
 ```
