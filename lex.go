@@ -30,7 +30,7 @@ func (l *lexer) readChar() {
 
 // Parser for a cobol picture string
 
-type result struct {
+type format struct {
 	picType    string // N for number, A for string
 	strLen     int
 	intPartLen int
@@ -41,14 +41,14 @@ type result struct {
 
 type parser struct {
 	l   *lexer
-	res result
+	res format
 }
 
 func newParser(l *lexer) *parser {
 	return &parser{l: l}
 }
 
-func (p *parser) parse() (result, error) {
+func (p *parser) parse() (format, error) {
 	for {
 		switch p.l.ch {
 		case '9', 'S', 'V':
