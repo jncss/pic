@@ -44,7 +44,7 @@ func main() {
 }
 
 ```
-## Example output:
+### Example output:
 ```
 Original struct: {1234 -123 1234.78 Hello World}
 Marshall result: 001234000123-00123478+Hello World         
